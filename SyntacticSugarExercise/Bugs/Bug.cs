@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SyntacticSugarExercise.Classes
+namespace SyntacticSugarExercise.Bugs
 {
     public class Bug
     {
@@ -17,14 +17,8 @@ namespace SyntacticSugarExercise.Classes
         public ICollection<string> Predators { get; } = new List<string>();
         public ICollection<string> Prey { get; } = new List<string>();
 
-        // Convert this readonly property to an expression member
-        public string FormalName
-        {
-            get
-            {
-                return $"{this.Name} the {this.Species}";
-            }
-        }
+        // Convert this readonly property to an expression member DONE
+        public string FormalName => $"{this.Name} the {this.Species}";
 
         // Class constructor
         public Bug(string name, string species, List<string> predators, List<string> prey)
@@ -35,24 +29,15 @@ namespace SyntacticSugarExercise.Classes
             this.Prey = prey;
         }
 
-        // Convert this method to an expression member
+        // Convert this method to an expression member DONE
         public string PreyList() => string.Join(",", this.Prey);
 
 
-        // Convert this method to an expression member
+        // Convert this method to an expression member DONE
         public string PredatorList() => string.Join(",", this.Predators);
 
-        // Convert this to expression method (hint: use a C# ternary)
-        public string Eat(string food)
-        {
-            if (this.Prey.Contains(food))
-            {
-                return $"{this.Name} ate the {food}.";
-            }
-            else
-            {
-                return $"{this.Name} is still hungry.";
-            }
-        }
+        // Convert this to expression method (hint: use a C# ternary) DONE
+
+        public string Eat(string food) => (this.Prey.Contains(food) ? $"{this.Name} ate the {food}." : $"{this.Name} is still hungry.");
     }
 }
