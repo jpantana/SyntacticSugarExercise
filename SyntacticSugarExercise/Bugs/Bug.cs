@@ -39,5 +39,21 @@ namespace SyntacticSugarExercise.Bugs
         // Convert this to expression method (hint: use a C# ternary) DONE
 
         public string Eat(string food) => (this.Prey.Contains(food) ? $"{this.Name} ate the {food}." : $"{this.Name} is still hungry.");
+
+        public string SeePreyAndPredators()
+        {
+            Console.WriteLine($"{Name} is a {Species}. He is both predator and prey.");
+            foreach (var predator in Predators)
+            {
+                Console.Write($"{predator}, ");
+            }
+
+            foreach (var prey in Prey)
+            {
+                Console.Write($"{prey}, ");
+            }
+
+            return "";
+        }
     }
 }

@@ -16,7 +16,7 @@ namespace SyntacticSugarExercise
 
             var whatKindaBug = "Beetle";
 
-            var newBug = new Bug("John", "fly", predators, preys);
+            var newBug = new Bug("John", whatKindaBug, predators, preys);
 
             Console.WriteLine($"What are some predators of a {whatKindaBug}?");
             var somePredators = Console.ReadLine();
@@ -40,6 +40,7 @@ namespace SyntacticSugarExercise
                 preys.Add(prey);
             }
 
+            newBug.SeePreyAndPredators();
         }
     }
 }
